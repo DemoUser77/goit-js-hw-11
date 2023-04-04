@@ -1,0 +1,27 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+   
+}
+.photo-card{
+    flex-basis: calc((100% - 10px)*(4 - 1) / 4);
+}
+.search-form{
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 400px;
+}
+.form-button{
+    display: flex;
+    margin-left: 20px;
+}
+.load-more{
+    display: block;
+    margin: 0 auto;
+    
+}
+.load-more.is-hidden {
+    display: none;
+}
