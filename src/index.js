@@ -1,4 +1,4 @@
-// import './css/styles.css';
+import './css/gallery.css';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
@@ -81,7 +81,7 @@ function handleSearchFormSubmit(event) {
       if (data.totalHits === 0) {
         Notify.failure("Sorry, there are no images matching your search query. Please try again.")
       } else {
-        galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(data));
+        galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(images));
         simpleLightBox = new SimpleLightbox('.gallery a').refresh();
         Notify.failure("Hooray! We found ${data.totalHits} images.")
       }
