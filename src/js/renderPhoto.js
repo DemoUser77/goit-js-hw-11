@@ -1,13 +1,13 @@
-const galleryListEl = document.querySelector('.gallery');
+// const galleryListEl = document.querySelector('.gallery');
 
  export function renderPhoto(images) {
-   const markup = images
+  return images
      .map(image => {
        const { webformatURL, largeImageURL, tags, likes, views, comments, downloads } = image
        return `
  <div class="photo-card">
   <a class = "photo" href="${largeImageURL}"></a>
-   <img src="${webformatURL}" alt="${tags}" loading="lazy"  class="photo-img"/>
+   <img src="${webformatURL}" alt="${tags}" loading="lazy" width="150" height="100" class="photo-img"/>
    
    <div class="info">
      <p class="info-item">
@@ -26,8 +26,7 @@ const galleryListEl = document.querySelector('.gallery');
  </div>
      `
      })
-     .join('');
-     galleryListEl.insertAdjacentHTML('beforeend', markup)
+     .join('')
      
     }
 
