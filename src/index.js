@@ -54,16 +54,14 @@ async function handleSearchFormSubmit(event) {
 
   }
 
-
-
 async function handleLoadMoreBtn() {
     page += 1;
   
   try {
       const { totalHits , hits } = await fetchImages(query, page, perPage)
     
-      galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
-      simpleLightBox = new SimpleLightbox('.gallery a').refresh()
+    galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
+    simpleLightBox = new SimpleLightbox('.gallery a').refresh();
       
   
     if (totalHits < page * perPage) {

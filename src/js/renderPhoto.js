@@ -7,7 +7,7 @@
        return `
  <div class="photo-card">
   <a class = "photo" href="${largeImageURL}"></a>
-   <img src="${webformatURL}" alt="${tags}" loading="lazy" width="150" height="100" class="photo-img"/>
+   <img src="${webformatURL}" alt="${tags}" loading="lazy"     class="photo-img"/>
    
    <div class="info">
      <p class="info-item">
