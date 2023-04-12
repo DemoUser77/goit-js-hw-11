@@ -1,7 +1,7 @@
 import './css/gallery.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
-import "simplelightbox/dist/simple-lightbox.min.css";
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { fetchImages } from '../src/js/fetchImages.js';
 import { renderPhoto } from '../src/js/renderPhoto.js';
@@ -63,8 +63,7 @@ async function handleLoadMoreBtn() {
     galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
     simpleLightBox = new SimpleLightbox('.gallery a').refresh();
       
-  
-    if (totalHits < page * perPage) {
+  if (totalHits < page * perPage) {
         loadMoreBtnEl.classList.add('is-hidden');
         Notify.failure("We're sorry, but you've reached the end of search results.")
       }
