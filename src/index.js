@@ -35,10 +35,21 @@ async function handleSearchFormSubmit(event) {
     
   try {
     const { totalHits, hits } = await fetchImages(query, page, perPage)
-     
+
+
+    
     if (totalHits === 0) {
       loadMoreBtnEl.classList.add('is-hidden');
       Notify.failure("Sorry, there are no images matching your search query. Please try again.")
+    
+    }
+    else if (totalHits < perPage) {
+       
+      loadMoreBtnEl.classList.add('is-hidden');
+       galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
+      simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+      Notify.success(`Hooray! We found ${totalHits} images.`)
+      
     }
     else {
       galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
@@ -50,6 +61,7 @@ async function handleSearchFormSubmit(event) {
    
       console.log(error.message);
   }
+
     searchFormEl.reset();
 
   }
@@ -59,10 +71,10 @@ async function handleLoadMoreBtn() {
   
   try {
       const { totalHits , hits } = await fetchImages(query, page, perPage)
-    
-    galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
     simpleLightBox = new SimpleLightbox('.gallery a').refresh();
+    galleryListEl.insertAdjacentHTML('beforeend', renderPhoto(hits));
       
+
   if (totalHits < page * perPage) {
         loadMoreBtnEl.classList.add('is-hidden');
         Notify.failure("We're sorry, but you've reached the end of search results.")

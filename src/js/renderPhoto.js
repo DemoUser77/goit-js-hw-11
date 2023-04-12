@@ -1,4 +1,4 @@
-// const galleryListEl = document.querySelector('.gallery');
+const galleryListEl = document.querySelector('.gallery');
 
  export function renderPhoto(images) {
   return images
@@ -7,7 +7,7 @@
        return `
  <div class="photo-card">
   <a class = "photo" href="${largeImageURL}"></a>
-   <img src="${webformatURL}" alt="${tags}" loading="lazy"     class="photo-img"/>
+   <img src="${webformatURL}" alt="${tags}" loading="lazy"   class="photo-img"/>
    
    <div class="info">
      <p class="info-item">
